@@ -2,8 +2,10 @@ package com.example.whatstheweather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         DownloadTask task = new DownloadTask(this);
         task.execute(url);
+
+        // Move down the keyboard when we hit the button to get weather
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(cityEditText.getWindowToken(),0);
     }
 
     @Override
