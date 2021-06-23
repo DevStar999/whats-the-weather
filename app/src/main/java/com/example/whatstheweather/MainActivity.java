@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import java.net.URLEncoder;
+
 public class MainActivity extends AppCompatActivity {
     // Views
     private EditText cityEditText;
@@ -18,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void getWeather(View view) {
         String cityName = cityEditText.getText().toString();
+        try {
+            // Adding safety for cases like when there could be spaces in the city name
+            cityName = URLEncoder.encode(cityName, "UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String appId = "27611062ac1d743b33fb0db1f3683b09";
         String url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid="+appId;
 
