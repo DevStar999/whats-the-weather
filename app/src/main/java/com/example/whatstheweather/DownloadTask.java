@@ -63,6 +63,8 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
             JSONObject jsonObject = new JSONObject(result);
             JSONArray weatherJsonArray = jsonObject.getJSONArray("weather");
 
+            Log.i("Info", "weatherJsonArray = " + weatherJsonArray.toString());
+
             for (int i=0; i<weatherJsonArray.length(); i++) {
                 textForWeatherTextView += weatherJsonArray.getJSONObject(i).getString("main");
                 textForWeatherTextView += " : ";
@@ -72,8 +74,10 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
 
             Integer textViewResourceId = context.getResources()
                     .getIdentifier("weatherTextView","id", context.getPackageName());
-            TextView weatherTextView = ((Activity) context).findViewById(textViewResourceId);
-            weatherTextView.setText(textForWeatherTextView);
+            if (!textForWeatherTextView.isEmpty()) {
+                TextView weatherTextView = ((Activity) context).findViewById(textViewResourceId);
+                weatherTextView.setText(textForWeatherTextView);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
