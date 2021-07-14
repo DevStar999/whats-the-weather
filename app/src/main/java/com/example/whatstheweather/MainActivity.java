@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView weatherTextView;
 
     private void initialise() {
-        cityEditText = findViewById(R.id.cityEditText);
-        weatherTextView = findViewById(R.id.weatherTextView);
+        cityEditText = findViewById(R.id.city_edittext);
+        weatherTextView = findViewById(R.id.weather_textview);
     }
 
     public void getWeather(View view) {
