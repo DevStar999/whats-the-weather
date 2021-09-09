@@ -11,60 +11,60 @@
         android:id="@+id/background_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background"
         android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/prompt_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Enter a City ..."
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/city_edittext"
-        android:textSize="25sp"
-        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/prompt_textview"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/prompt_textview" />
 
     <Button
         android:id="@+id/weather_button"
-        android:text="What's the Weather"
-        android:textSize="20sp"
-        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="20dp"
         android:onClick="getWeather"
-        app:layout_constraintTop_toBottomOf="@+id/city_edittext"
+        android:text="What's the Weather"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/city_edittext" />
 
     <TextView
         android:id="@+id/weather_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="20sp"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/weather_button"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/weather_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

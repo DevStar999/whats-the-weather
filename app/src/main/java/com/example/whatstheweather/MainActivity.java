@@ -1,7 +1,5 @@
 package com.example.whatstheweather;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +8,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         String appId = "27611062ac1d743b33fb0db1f3683b09";
-        String url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid="+appId;
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + appId;
 
         DownloadTask task = new DownloadTask();
         task.execute(url);
 
         // Move down the keyboard when we hit the button to get weather
         InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        manager.hideSoftInputFromWindow(cityEditText.getWindowToken(),0);
+        manager.hideSoftInputFromWindow(cityEditText.getWindowToken(), 0);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 int data = reader.read();
 
                 Log.i("Info DownloadTask", "Inside try block of doInBackground(), checkpoint 2");
-                while(data != -1) {
+                while (data != -1) {
                     char current = (char) data;
                     result += current;
                     data = reader.read();
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.i("Info", "weatherJsonArray = " + weatherJsonArray.toString());
 
-                for (int i=0; i<weatherJsonArray.length(); i++) {
+                for (int i = 0; i < weatherJsonArray.length(); i++) {
                     textForWeatherTextView += weatherJsonArray.getJSONObject(i)
                             .getString("main") + " : ";
                     textForWeatherTextView += weatherJsonArray.getJSONObject(i)
